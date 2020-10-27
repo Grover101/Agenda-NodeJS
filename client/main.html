@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda de usuario</title>
+    <link rel="stylesheet" href="css/fullcalendar.min.css">
+    <link rel="stylesheet" href="css/index.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Neucha" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  </head>
+  <body>
+    <div class="headerCalendar">Mi Agenda Personal</div>
+    <div class="dataContainer">
+      <div class="calendarDataContainer">
+        <div class="mainCalendarContainer">
+          <div class="calendarContainer">
+            <div class="calendario"></div>
+          </div>
+        </div>
+      </div>
+      <div class="formContainer">
+        <div class="formTitle">Programar Evento</div>
+        <div class="separator"></div>
+        <div class="form-inputs">
+          <input type="text" id="titulo" placeholder="Nombre del evento"/>
+          <input type="text" id="start_date" placeholder="Fecha de inicio"/>
+          <div class="eventDuration">
+            <input type="checkbox" id="allDay" class="radio-input"/>
+            <label class="duration-label" for="allDay">Día completo</label>
+          </div>
+          <input type="text" id="end_date" placeholder="Fecha fin"/>
+          <div class="form-group">
+            <input type="text" id="start_hour" placeholder="Hora de inicio" class="timepicker hour-input left"/>
+            <input type="text" id="end_hour" placeholder="Hora fin" class="timepicker hour-input right"/>
+          </div>
+          <button id="save" class="addButton">Añadir evento</button>
+        </div>
+        <div id="deleteEvent" class="delete">
+          <div class="drop-event">Eliminar evento</div>
+          <img src="delete.png"/>
+        </div>
+        <div class="logout-container">
+          <img class="logout-image" src="logout.png"/>
+          <div class="logoutText" id="logout">Cerrar Sesión</div>
+        </div>
+      </div>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script src="http://momentjs.com/downloads/moment.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="fullcalendar.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+    <script src="js/bundle.js"></script>
+  </body>
+</html>
