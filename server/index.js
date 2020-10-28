@@ -19,6 +19,10 @@ const mongoose = require("mongoose"),
     }
   );
 
+// archibos de ruta de usuarios y eventos
+const routingUsers = require("./rutasUsers.js"),
+  routingEvents = require("./rutaEvents.js");
+
 const PORT = 3000; // pueto de conexion
 const app = express(); // variable de express
 
@@ -36,6 +40,9 @@ app.use(
     saveUninitialized: true,
   })
 );
+
+app.use("/usuarios", routingUsers); // definir el direcctorio de usuarios e incluir el modulo
+app.use("/events", routingEvents); // definir el direcctorio de eventos e incluir el modulo
 
 // iniciar servidor
 Server.listen(PORT, () => {
