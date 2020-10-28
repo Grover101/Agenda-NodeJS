@@ -1,13 +1,13 @@
-const mongoose = require("mongoose"),
+let mongoose = require("mongoose"),
   Schema = mongoose.Schema;
 
 // creacion de squema de los usuarios
-const userSchema = new Schema({
+let userSchema = new Schema({
   user: { type: String, required: true, unique: true },
   email: { type: String, required: true },
   password: { type: String, required: true },
 });
 
-const usuarioModel = mongoose.model("Usuario", userSchema); // definir el modelo del usuario
+let usuarioModel = mongoose.model("Usuario", userSchema); // definir el modelo del usuario
 
 module.exports = usuarioModel; // exportar el modelo del usuario

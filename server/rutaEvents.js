@@ -1,6 +1,6 @@
 const RouterEventos = require("express").Router();
-const Usuario = require("./modelUsuarios.js");
-const Evento = require("./modelEventos.js");
+const Usuario = require("./modelUsers.js");
+const Evento = require("./modelEvents.js");
 
 // obtener todos los eventos del usuario logueado
 RouterEventos.get("/all", function (req, res) {
@@ -96,7 +96,7 @@ RouterEventos.post("/delete/:_id", function (req, res) {
       res.send("logout");
     } else {
       // remueve el registro con el id
-      Evento.remove({ _id: id }, function (error) {
+      Evento.deleteOne({ _id: id }, function (error) {
         if (error) {
           console.log(error);
           res.status(500);
@@ -124,7 +124,7 @@ RouterEventos.post("/update/:_id&:start&:end", function (req, res) {
         if (error) {
           res.send(error);
         } else {
-          Evento.update(
+          Evento.updateOne(
             { _id: id },
             { start: start, end: end },
             (error, result) => {

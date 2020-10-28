@@ -1,21 +1,24 @@
 const Router = require("express").Router();
-const Usuarios = require("./modelUsuarios.js");
-const Eventos = require("./modelEventos.js");
+const Usuarios = require("./modelUsers.js");
+const Eventos = require("./modelEvents.js");
 const Operaciones = require("./crud.js");
 
 Router.get("/users", function (req, res) {
-  Usuarios.find({ user: req.query.user }).count({}, function (err, count) {
+  Usuarios.find({ user: req.query.user }).countDocuments({}, function (
+    err,
+    count
+  ) {
     // verificar si existe el usuario user
     if (count > 0)
       res.send(
-        "Utilice los siguientes datos: </br>usuario: user | password:123456 </br>usuario: hola | password:123456"
+        "Usuarios por defecto: </br>usuario: user | password: 123456 </br>usuario: hola | password: 123456"
       );
     else {
-      Eventos.find({}).count({}, function (err, count) {
+      Eventos.find({}).countDocuments({}, function (err, count) {
         // verificar si hay algun evento
         if (count > 0) {
           // si existen eventos hay que borrarlos
-          Eventos.remove({}, function (err, doc) {
+          Eventos.deleteMany({}, function (err, doc) {
             if (err) {
               console.log(err);
             } else {
@@ -25,7 +28,7 @@ Router.get("/users", function (req, res) {
         }
       });
       // crear a los usuarios por defecto si no hay ninguno
-      Operaciones.crearUsuarioDemo((error, result) => {
+      Operaciones.crearUsuarios((error, result) => {
         if (error) {
           res.send(error); // enviar mensaje de error
         } else {
@@ -41,31 +44,32 @@ Router.post("/login", function (req, res) {
   let user = req.body.user; // obtener la informacion del nombre de usuario enviada desde el formulario
   let password = req.body.pass, // obtener la informacion de la conrtaseña de usuario enviada desde el formulario
     sess = req.session; // iniciar el manejador de sesiones
-  Usuarios.find({ user: user }).count({}, function (err, count) {
+  Usuarios.find({ user: user }).countDocuments({}, function (err, count) {
     // verificar que el usuario está registrado
     if (err) {
       res.status(500);
       res.json(err);
     } else {
       if (count == 1) {
-        Usuarios.find({ user: user, password: password }).count({}, function (
-          err,
-          count
-        ) {
-          // verificar su contraseña
-          if (err) {
-            res.status(500); // devolver status de error
-            res.json(err); // devolver devolver el error en formato json
-          } else {
-            if (count == 1) {
-              // si ambos campos coinciden con el registro de la base de datos, enviar mensaje Validado
-              sess.user = req.body.user; // guardar el nombre del usuario en la variable de manejo de sesiones
-              res.send("Validado"); // devolver mensaje
+        Usuarios.find({ user: user, password: password }).countDocuments(
+          {},
+          function (err, count) {
+            // verificar su contraseña
+            if (err) {
+              console.log(err);
+              res.status(500); // devolver status de error
+              res.json(err); // devolver devolver el error en formato json
             } else {
-              res.send("Contraseña incorrecta");
+              if (count == 1) {
+                // si ambos campos coinciden con el registro de la base de datos, enviar mensaje Validado
+                sess.user = req.body.user; // guardar el nombre del usuario en la variable de manejo de sesiones
+                res.send("Validado"); // devolver mensaje
+              } else {
+                res.send("Contraseña incorrecta");
+              }
             }
           }
-        });
+        );
       } else {
         res.send("Usuario no registrado"); // mostrar mensaje Usuario o registrado
       }

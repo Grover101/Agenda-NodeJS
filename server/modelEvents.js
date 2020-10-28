@@ -1,4 +1,4 @@
-const mongoose = require("mongoose"),
+let mongoose = require("mongoose"),
   Schema = mongoose.Schema,
   autoIncrement = require("mongoose-auto-increment"),
   // crear el squema de los eventos
@@ -12,6 +12,6 @@ const mongoose = require("mongoose"),
 autoIncrement.initialize(mongoose.connection); // iniciar el modulo de autoincrementar
 eventSchema.plugin(autoIncrement.plugin, { model: "Evento", startAt: 1 }); // asigna el autoincrementado al esquema de Evento
 
-const eventModel = mongoose.model("Evento", eventSchema);
+let eventModel = mongoose.model("Evento", eventSchema);
 
 module.exports = eventModel; // exportar el modulo evento

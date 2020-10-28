@@ -1,4 +1,4 @@
-var Usuario = require("./modelUsuarios.js"); //Asignarle a la variable USUARIO el modelo del usuario
+var Usuario = require("./modelUsers.js"); //Asignarle a la variable USUARIO el modelo del usuario
 
 // funcion para crear los usuarios
 module.exports.crearUsuarios = function (callback) {

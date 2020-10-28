@@ -1,6 +1,5 @@
 // modulos necesarios
 const http = require("http"),
-  path = require("path"),
   express = require("express"),
   session = require("express-session"),
   bodyParse = require("body-parser"),
@@ -12,6 +11,8 @@ const mongoose = require("mongoose"),
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
     },
     function (error) {
       if (error) console.log(error.name + " " + error.message);
@@ -20,7 +21,7 @@ const mongoose = require("mongoose"),
   );
 
 // archibos de ruta de usuarios y eventos
-const routingUsers = require("./rutasUsers.js"),
+const routingUsers = require("./rutaUsers.js"),
   routingEvents = require("./rutaEvents.js");
 
 const PORT = 3000; // pueto de conexion

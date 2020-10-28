@@ -1,4 +1,6 @@
-*, *:after, *:before {
+*,
+*:after,
+*:before {
   top: 0;
   left: 0;
 }
@@ -7,12 +9,12 @@ html {
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background: url('back.jpeg');
+  background: url("../img/back.jpeg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: 'Kaushan Script', cursive;
-  font-family: 'Neucha', cursive;
+  font-family: "Kaushan Script", cursive;
+  font-family: "Neucha", cursive;
 }
 
 body {
@@ -21,11 +23,11 @@ body {
   margin: 0;
 }
 
-.headerCalendar{
+.headerCalendar {
   width: 100%;
-  height: 20%;
+  height: 10%;
   background: #004462;
-  font-family: 'Kaushan Script', cursive;
+  font-family: "Kaushan Script", cursive;
   color: #ffffff;
   font-size: 40px;
   display: flex;
@@ -36,8 +38,8 @@ body {
 .calendarDataContainer {
   width: 70%;
   height: 100%;
-  font-family: 'Kaushan Script', cursive;
-  font-family: 'Neucha', cursive;
+  font-family: "Kaushan Script", cursive;
+  font-family: "Neucha", cursive;
   display: flex;
   flex-direction: column;
 }
@@ -45,7 +47,7 @@ body {
 .dataContainer {
   display: flex;
   width: 100%;
-  height: 80%;
+  height: 90%;
 }
 
 .mainCalendarContainer {
@@ -58,14 +60,14 @@ body {
   width: 97%;
   height: 100%;
   margin: 8px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .formContainer {
   width: 30%;
-  height: 100%;
+  /* height: 100%; */
   background: rgba(0, 0, 0, 0.7);
-  font-family: 'Neucha', cursive;
+  font-family: "Neucha", cursive;
   color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -82,7 +84,7 @@ body {
   margin-top: 4px;
   margin-bottom: 8px;
   height: 1px;
-  background: #FFFFFF;
+  background: #ffffff;
 }
 
 .form-inputs {
@@ -100,9 +102,9 @@ input {
   margin-bottom: 8px;
   font-size: 15px;
   border-radius: 4px;
-  color: #FFFFFF;
-  font-family: 'Kaushan Script', cursive;
-  font-family: 'Neucha', cursive;
+  color: #ffffff;
+  font-family: "Kaushan Script", cursive;
+  font-family: "Neucha", cursive;
   background: rgba(0, 0, 0, 0.8);
 }
 
@@ -134,8 +136,8 @@ input {
 
 .radio-input {
   border: solid white 1px;
-  background: url(blue.png) no-repeat;
-  -webkit-appearance:none;
+  background: url(../img/blue.png) no-repeat;
+  -webkit-appearance: none;
   width: 20px;
   background-position: -2px -1px;
   height: 20px;
@@ -154,8 +156,8 @@ input {
 }
 
 .fc-button {
-  font-family: 'Kaushan Script', cursive;
-  font-family: 'Neucha', cursive;
+  font-family: "Kaushan Script", cursive;
+  font-family: "Neucha", cursive;
   font-size: 16px;
   display: flex;
   justify-content: center;
@@ -169,10 +171,10 @@ input {
   border-radius: 4px;
   border: none;
   font-size: 17px;
-  color: #FFFFFF;
+  color: #ffffff;
   background: #1270b6;
-  font-family: 'Kaushan Script', cursive;
-  font-family: 'Neucha', cursive;
+  font-family: "Kaushan Script", cursive;
+  font-family: "Neucha", cursive;
   margin-bottom: 55px;
   cursor: pointer;
 }
@@ -185,7 +187,7 @@ input {
   width: 100%;
   height: 15%;
   display: flex;
-  background-color: #8B0913;
+  background-color: #8b0913;
   align-items: center;
   flex-direction: column;
   justify-content: center;
@@ -195,6 +197,7 @@ input {
 
 .logout-container {
   display: flex;
+  cursor: pointer;
 }
 
 .logout-image {
@@ -206,7 +209,6 @@ input {
   margin-top: 4px;
 }
 
-
 .addButton:hover {
-  background: #009CC0;
+  background: #009cc0;
 }
